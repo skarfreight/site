@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skar Freight • Logistics Solutions</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+        <!-- Mobile Header (Logo + Hamburger) - Only visible on mobile -->
+    <div class="mobile-header">
+        <a href="#home" class="mobile-logo">
+            <img src="/assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight Logo">
+        </a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#home" class="mobile-nav-link active">Home</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="#tracking" class="mobile-nav-link">Tracking</a>
+            <a href="contact-us.html" class="mobile-nav-link">Contact</a>
+        </nav>
+        <div class="mobile-menu-footer">
+            <a href="contact-us.html" class="btn-mobile-quote">Get a Quote</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#tracking" class="nav-link">Tracking</a>
+            <a href="contact-us.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Right Side Actions -->
+    <div class="nav-actions">
+        <a href="contact-us.html" class="btn-primary">
+            Get a Quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+        </a>
+        <button class="btn-round" aria-label="Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"/>
+                <circle cx="19" cy="12" r="1"/>
+                <circle cx="5" cy="12" r="1"/>
+            </svg>
+        </button>
+    </div>
+<!--https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop-->
+    <!-- Hero Section -->
+    <section class="section hero-section" id="home">
+        <div class="hero-bg">
+            <img src="/assets/img/hero/hero-bg.png" 
+                 alt="Container ship at sea" 
+                 id="heroImage">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content" id="heroContent">
+            <p class="hero-text">
+                Reliable Road Freight Across Southern Africa.
+                Since 2003, Skar Freight has delivered professional local, long-distance and cross-border 
+                transport solutions across the SADC region — safely, securely, and on schedule.
+            </p>
+            <div class="hero-cta">
+                <a href="contact-us.html" class="btn-request">
+                    Request a Quote
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+                <button class="btn-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Animated Ticker -->
+        <div class="ticker-container">
+            <div class="ticker-wrapper" id="ticker">
+                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
+                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
+                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
+                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
+            </div>
+        </div>
+    </section>
+
+       <!-- Why Choose Us Section -->
+    <section class="section why-choose-section" id="about">
+        <div class="why-choose-container">
+            <!-- Header Row -->
+            <div class="why-choose-header">
+                <div class="section-label">
+                    <span class="orange-dot"></span>
+                    <span>Why Choose Us</span>
+                </div>
+                <h2 class="why-choose-heading">
+                    Built on Experience. Backed by Fleet. Trusted Across SADC.
+                </h2>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Regional Road Freight Experts</h3>
+                    <p class="feature-description">Providing professional local, long-distance and cross-border transport across Zimbabwe, 
+                        Zambia, Malawi, DRC and Botswana since 2003.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Company-Owned Fleet</h3>
+                    <p class="feature-description">34-ton payload super-link flat decks, tautliners, triaxles and side tippers — all 
+                        purchased new and maintained under strict service plans.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">24/7 Live Tracking</h3>
+                    <p class="feature-description">Every vehicle is monitored via live satellite tracking, giving you real-time 
+                        visibility and total shipment control.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Secure & Fully Insured</h3>
+                    <p class="feature-description">R2 million GIT cover, R10 million Public Liability, and Environmental/Spillage Cover — 
+                        protecting your cargo at every stage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Services Section -->
+    <section class="section services-section" id="services">
+        <div class="services-container">
+            <!-- Carousel -->
+            <div class="carousel-viewport" id="carouselViewport">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slides will be duplicated by JS for infinite loop -->
+                    <!-- Slide 1: Air Freight -->
+                    <div class="service-slide" data-service="air">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop" alt="Air Freight">
+                            <div class="slide-overlay"></div>
+                            <div class="slide-content">
+                                <span class="slide-number">01</span>
+                                <h3 class="slide-title">Local Transport</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Sea Shipping -->
+                    <div class="service-slide active" data-service="sea">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1577993130611-bd07d6f7c57a?q=80&w=1000&auto=format&fit=crop" alt="Sea Shipping">
+                            <div class="slide-overlay"></div>
+                            <div class="slide-content">
+                                <span class="slide-number">02</span>
+                                <h3 class="slide-title">Long Distance Haulage</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Road Transport -->
+                    <div class="service-slide" data-service="road">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1000&auto=format&fit=crop" alt="Road Transport">
+                            <div class="slide-overlay"></div>
+                            <div class="slide-content">
+                                <span class="slide-number">03</span>
+                                <h3 class="slide-title">Cross-Border Freight</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Rail Freight -->
+                    <div class="service-slide" data-service="rail">
+                        <div class="slide-card">
+                            <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1000&auto=format&fit=crop" alt="Rail Freight">
+                            <div class="slide-overlay"></div>
+                            <div class="slide-content">
+                                <span class="slide-number">04</span>
+                                <h3 class="slide-title">Specialised Cargo</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description Area -->
+            <div class="service-description" id="serviceDescription">
+                <p class="description-text">
+                    Professional road freight solutions designed for reliability, compliance and efficiency 
+                    <span class="highlight">— supported by a modern fleet and experienced operators.</span>
+                </p>
+                <a href="contact-us.html" class="btn-learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Process Section -->
+    <section class="section process-section" id="process">
+        <div class="process-container">
+            <!-- Background Elements -->
+            <div class="world-map left">
+                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Dotted world map pattern -->
+                    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.15)"/>
+                    </pattern>
+                    <rect width="400" height="400" fill="url(#dots)"/>
+                    <!-- Continents shapes (simplified dotted) -->
+                    <circle cx="80" cy="100" r="40" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="120" cy="80" r="30" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="60" cy="150" r="25" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="100" cy="200" r="35" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="150" cy="120" r="20" fill="rgba(255,255,255,0.08)"/>
+                </svg>
+            </div>
+            <div class="world-map right">
+                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <pattern id="dots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.15)"/>
+                    </pattern>
+                    <rect width="400" height="400" fill="url(#dots2)"/>
+                    <circle cx="300" cy="100" r="45" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="350" cy="150" r="35" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="320" cy="200" r="30" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="280" cy="250" r="25" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="340" cy="300" r="20" fill="rgba(255,255,255,0.08)"/>
+                </svg>
+            </div>
+
+            <!-- Header -->
+            <div class="process-header">
+                <h2 class="process-title">From Request to Delivery—Streamlined<br>Every Step of the Way</h2>
+                <p class="process-subtitle">From initial request to final delivery, our road freight process is <br> structured, transparent and fully monitored.</p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-container">
+                <!-- Connecting Line -->
+                <div class="timeline-line">
+                    <div class="line-progress"></div>
+                </div>
+
+                <!-- Steps -->
+                <div class="steps-wrapper">
+                    <!-- Step 1 -->
+                    <div class="step" data-step="1">
+                        <div class="step-connector">
+                            <div class="vertical-line"></div>
+                        </div>
+                        <div class="step-circle">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Request a Quote</h3>
+                            <p class="step-description">Submit your cargo details and route requirements for a competitive and sustainable pricing proposal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step" data-step="2">
+                        <div class="step-connector">
+                            <div class="vertical-line"></div>
+                        </div>
+                        <div class="step-circle">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Fleet Allocation & Dispatch</h3>
+                            <p class="step-description">We allocate the correct vehicle type and route plan, ensuring compliance, safety and efficiency.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step" data-step="3">
+                        <div class="step-connector">
+                            <div class="vertical-line"></div>
+                        </div>
+                        <div class="step-circle">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Live Monitoring & Delivery</h3>
+                            <p class="step-description">Track your cargo in real-time until safe and secure delivery at destination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- End-to-End Logistics Services Section -->
+    <section class="section logistics-services-section" id="logistics">
+        <div class="logistics-container">
+            <!-- Header -->
+            <div class="logistics-header">
+                <div class="section-label">
+                    <span class="orange-dot"></span>
+                    <span>End to End Logistics Services</span>
+                </div>
+                <h2 class="logistics-heading">
+                    Comprehensive Road Freight & 3PL Solutions
+                </h2>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid-four">
+                <!-- Service 1 -->
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">Break Bulk & Containerized Freight</h3>
+                    <p class="service-desc">Secure handling of bulk and containerized cargo across Southern Africa.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">Hazardous & Bonded Cargo</h3>
+                    <p class="service-desc">Transport of regulated and bonded goods under strict compliance standards.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">3PL Solutions</h3>
+                    <p class="service-desc">Tailored third-party logistics solutions available upon request.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">Secure Operations</h3>
+                    <p class="service-desc">No night driving. All vehicles parked in 24-hour guarded facilities for enhanced cargo safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Shipment Section -->
+    <section class="section track-section" id="tracking">
+        <div class="track-bg">
+            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop" alt="Container ship at sea">
+            <div class="track-overlay"></div>
+        </div>
+        
+        <div class="track-container">
+            <div class="track-card">
+                <h2 class="track-title">Real-Time Shipment Visibility</h2>
+                <p class="track-subtitle">Every Skar Freight vehicle is equipped with live satellite tracking, giving our clients complete visibility and control throughout the journey.</p>
+                
+                <form class="track-form" id="trackForm">
+                    <input type="text" class="track-input" placeholder="Enter your Email Address" required>
+                    <a href="contact-us.html#info" type="submit" class="btn-track">Track Shipment</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+        <!-- Testimonials Section -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="testimonials-container">
+            <!-- Left Content -->
+            <div class="testimonials-left">
+                <div class="section-label">
+                    <span class="orange-dot"></span>
+                    <span>Users Feedback</span>
+                </div>
+                
+                <h2 class="testimonials-title">Trusted by Businesses<br>Worldwide</h2>
+                
+                <div class="testimonials-nav">
+                    <button class="nav-arrow prev" id="prevBtn" aria-label="Previous testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="nav-arrow next" id="nextBtn" aria-label="Next testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <p class="testimonials-intro">
+                    Businesses across Southern Africa trust us for dependable cross-border road transport, secure handling and consistent service delivery.
+                </p>
+            </div>
+
+            <!-- Right Content - Testimonial Slider -->
+            <div class="testimonials-right">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide active" data-index="0">
+                        <div class="testimonial-quote">
+                            <p>Skar Freight helped us reduce delivery times by 30%. Their real-time tracking and support team are top-notch.</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="James R" class="testimonial-image">
+                            <div class="testimonial-info">
+                                <div class="testimonial-author">
+                                    <h4>James R</h4>
+                                    <span>Supply Chain Manager</span>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide" data-index="1">
+                        <div class="testimonial-quote">
+                            <p>The customs clearance service saved us countless hours of paperwork. Highly recommended for international shipping.</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Sarah M" class="testimonial-image">
+                            <div class="testimonial-info">
+                                <div class="testimonial-author">
+                                    <h4>Sarah M</h4>
+                                    <span>Operations Director</span>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide" data-index="2">
+                        <div class="testimonial-quote">
+                            <p>We've cut logistics costs by 25% since switching to Skar Freight. Their technology platform is intuitive and powerful.</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop" alt="Michael Chen" class="testimonial-image">
+                            <div class="testimonial-info">
+                                <div class="testimonial-author">
+                                    <h4>Michael Chen</h4>
+                                    <span>CEO, TechStart Inc.</span>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-slide" data-index="3">
+                        <div class="testimonial-quote">
+                            <p>Outstanding customer service! They handled our complex supply chain needs with professionalism and care.</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Emily Watson" class="testimonial-image">
+                            <div class="testimonial-info">
+                                <div class="testimonial-author">
+                                    <h4>Emily Watson</h4>
+                                    <span>Logistics Coordinator</span>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- CTA & Footer Combined Section -->
+    <section class="section cta-footer-section" id="contact">
+        <div class="cta-footer-container">
+            <!-- CTA Part -->
+            <div class="cta-wrapper">
+                <div class="cta-image">
+                    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1000&auto=format&fit=crop" alt="Container ship">
+                </div>
+                <div class="cta-content">
+                    <div class="cta-bg-pattern"></div>
+                    <h2 class="cta-title">Let's Get Your Cargo Moving</h2>
+                    <p class="cta-subtitle">Whether you require local distribution, long-distance haulage or cross-border transport within the SADC region — Skar Freight delivers with precision.</p>
+                    <div class="cta-actions">
+                        <button class="btn-cta">Request a Quote</button>
+                        <button class="btn-cta-arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="cta-logo">SKAR FREIGHT</div>
+                </div>
+            </div>
+
+            <!-- Footer Part -->
+            <div class="footer-wrapper">
+                <div class="footer-main">
+                    <!-- Brand Column -->
+                    <div class="footer-brand">
+                        <h3 class="footer-brand-name">Skar Freight</h3>
+                        <p class="footer-brand-desc">Providing 
+                            professional road freight solutions across Southern Africa. We move cargo 
+                            with confidence.</p>
+                    </div>
+
+                    <!-- Page Links -->
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Page</h4>
+                        <ul class="footer-list">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#tracking">Tracking</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="footer-social">
+                        <h4 class="footer-heading">Follow us</h4>
+                        <ul class="footer-list">
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="footer-newsletter">
+                        <h4 class="footer-heading">Subscribe to news</h4>
+                        <button class="btn-subscribe">
+                            Request a Quote
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Large Background Text -->
+                <div class="footer-watermark">SKAR FREIGHT</div>
+
+                <!-- Copyright -->
+                <div class="footer-copyright">
+                    <p>© 2026 Skar Freight. All rights reserved. Developed by <a href="https://icarusdigi.github.io/site/" target="_blank" rel="noopener noreferrer">IDM</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./assets/js/script.js"></script>
+
+</body>
+</html>

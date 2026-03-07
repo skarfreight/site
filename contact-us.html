@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Skar Freight - Logistics Solutions</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/contact.css">
+</head>
+<body>
+
+    <!-- Mobile Header (Logo + Hamburger) - Only visible on mobile -->
+    <div class="mobile-header">
+        <a href="#home" class="mobile-logo">
+            <img src="/assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight Logo">
+        </a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#home" class="mobile-nav-link active">Home</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="#tracking" class="mobile-nav-link">Tracking</a>
+            <a href="contact-us.html" class="mobile-nav-link">Contact</a>
+        </nav>
+        <div class="mobile-menu-footer">
+            <a href="contact-us.html" class="btn-mobile-quote">Get a Quote</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#services" class="nav-link">Services</a>
+            <a href="index.html#tracking" class="nav-link">Tracking</a>
+            <a href="contact-us.html" class="nav-link active">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Right Side Actions -->
+    <div class="nav-actions">
+        <a href="contact.html" class="btn-primary">
+            Get a Quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+        </a>
+        <button class="btn-round" aria-label="Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"/>
+                <circle cx="19" cy="12" r="1"/>
+                <circle cx="5" cy="12" r="1"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Slim Hero -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1>Request a Freight Quote</h1>
+            <p>Complete the form below and our logistics team will respond within 24 hours</p>
+        </div>
+    </section>
+
+    <!-- Contact Information Block -->
+    <section class="contact-info-section">
+        <div class="contact-info-grid">
+            <div class="info-block">
+                <span class="info-label">Email</span>
+                <a href="mailto:operations@skarfreight.co.za">operations@skarfreight.co.za</a>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Phone</span>
+                <a href="tel:+27123456789">+27 12 345 6789</a>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Operating Hours</span>
+                <span>Mon - Fri: 08:00 - 17:00 SAST</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Form Section -->
+    <section class="form-section" id="info" >
+        <div class="form-container">
+            
+            <!-- Progress Bar -->
+            <div class="form-progress">
+                <div class="progress-step active" data-step="1">
+                    <span class="step-number">01</span>
+                    <span class="step-label">Client Details</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2">
+                    <span class="step-number">02</span>
+                    <span class="step-label">Shipment Info</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3">
+                    <span class="step-number">03</span>
+                    <span class="step-label">Route & Submit</span>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+                
+                <!-- Web3Forms Configuration -->
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+                <input type="hidden" name="subject" value="New Freight Quote Request - Skar Freight">
+                <input type="hidden" name="from_name" value="Skar Freight Website">
+                <input type="hidden" name="redirect" value="https://skarfreight.co.za/thank-you.html">
+                
+                <!-- Step 1: Client Details -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-header">
+                        <h2>Client Information</h2>
+                        <p>Tell us about yourself and your company</p>
+                    </div>
+
+                    <div class="form-grid two-col">
+                        <div class="form-group">
+                            <label for="clientFullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="clientFullName" name="Client Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">Company Name <span class="required">*</span></label>
+                            <input type="text" id="companyName" name="Company Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid two-col">
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address <span class="required">*</span></label>
+                            <input type="email" id="emailAddress" name="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phoneNumber" name="Phone Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vatNumber">VAT / Registration Number <span class="optional">(Optional)</span></label>
+                        <input type="text" id="vatNumber" name="VAT Registration Number">
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-next" onclick="nextStep(2)">Continue to Shipment Details</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Shipment Information -->
+                <div class="form-step" data-step="2">
+                    <div class="step-header">
+                        <h2>Shipment Details</h2>
+                        <p>Describe your cargo and service requirements</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType">Service Type <span class="required">*</span></label>
+                        <select id="serviceType" name="Service Type" required>
+                            <option value="">Select a service...</option>
+                            <option value="Local Transport">Local Transport</option>
+                            <option value="Long Distance">Long Distance</option>
+                            <option value="Cross-Border">Cross-Border</option>
+                            <option value="Break Bulk">Break Bulk</option>
+                            <option value="Containerized">Containerized</option>
+                            <option value="Hazardous / Bonded">Hazardous / Bonded</option>
+                            <option value="3PL">3PL</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cargoDescription">Cargo Description <span class="required">*</span></label>
+                        <textarea id="cargoDescription" name="Cargo Description" rows="3" placeholder="Describe the nature of your goods..." required></textarea>
+                    </div>
+
+                    <div class="form-grid two-col">
+                        <div class="form-group">
+                            <label for="estimatedWeight">Estimated Weight <span class="required">*</span></label>
+                            <div class="input-group">
+                                <input type="number" id="estimatedWeight" name="Estimated Weight" min="0" step="0.01" required>
+                                <select name="Weight Unit" class="unit-select">
+                                    <option value="kg">kg</option>
+                                    <option value="tons">tons</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="packagingType">Packaging Type <span class="required">*</span></label>
+                            <select id="packagingType" name="Packaging Type" required>
+                                <option value="">Select...</option>
+                                <option value="Pallets">Pallets</option>
+                                <option value="Crates">Crates</option>
+                                <option value="Containers">Containers</option>
+                                <option value="Bulk">Bulk</option>
+                                <option value="Boxes/Cartons">Boxes/Cartons</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid three-col">
+                        <div class="toggle-group">
+                            <label class="toggle-label">
+                                <input type="checkbox" name="Hazardous Cargo" value="Yes">
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-text">Hazardous Cargo?</span>
+                            </label>
+                        </div>
+                        <div class="toggle-group">
+                            <label class="toggle-label">
+                                <input type="checkbox" name="Insurance Required" value="Yes">
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-text">Insurance Required?</span>
+                            </label>
+                        </div>
+                        <div class="toggle-group">
+                            <label class="toggle-label">
+                                <input type="checkbox" name="Tracking Access Required" value="Yes">
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-text">Tracking Access?</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Conditional Hazardous Details -->
+                    <div class="form-group conditional-field" id="hazardousDetails" style="display: none;">
+                        <label for="hazardousInfo">Hazardous Material Details <span class="required">*</span></label>
+                        <textarea id="hazardousInfo" name="Hazardous Material Details" rows="3" placeholder="UN Number, Class, Packing Group, etc."></textarea>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-prev" onclick="prevStep(1)">Back</button>
+                        <button type="button" class="btn-next" onclick="nextStep(3)">Continue to Route Details</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Route Information -->
+                <div class="form-step" data-step="3">
+                    <div class="step-header">
+                        <h2>Route Information</h2>
+                        <p>Specify collection and delivery locations</p>
+                    </div>
+
+                    <div class="location-section">
+                        <h3>Collection</h3>
+                        <div class="form-grid two-col">
+                            <div class="form-group">
+                                <label for="collectionCity">City <span class="required">*</span></label>
+                                <input type="text" id="collectionCity" name="Collection City" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="collectionCountry">Country <span class="required">*</span></label>
+                                <input type="text" id="collectionCountry" name="Collection Country" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="collectionDate">Preferred Collection Date <span class="required">*</span></label>
+                            <input type="date" id="collectionDate" name="Preferred Collection Date" required>
+                        </div>
+                    </div>
+
+                    <div class="location-section">
+                        <h3>Delivery</h3>
+                        <div class="form-grid two-col">
+                            <div class="form-group">
+                                <label for="deliveryCity">City <span class="required">*</span></label>
+                                <input type="text" id="deliveryCity" name="Delivery City" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryCountry">Country <span class="required">*</span></label>
+                                <input type="text" id="deliveryCountry" name="Delivery Country" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryDate">Required Delivery Date <span class="optional">(Optional)</span></label>
+                            <input type="date" id="deliveryDate" name="Required Delivery Date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalNotes">Additional Notes <span class="optional">(Optional)</span></label>
+                        <textarea id="additionalNotes" name="Additional Notes" rows="4" placeholder="Any special requirements, access restrictions, or other relevant information..."></textarea>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-prev" onclick="prevStep(2)">Back</button>
+                        <button type="submit" class="btn-submit">Submit Quote Request</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- File Upload Notice -->
+            <div class="file-notice">
+                <div class="notice-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="notice-content">
+                    <strong>Supporting Documents</strong>
+                    <p>Invoices, packing lists, or SDS documentation can be emailed directly to <a href="mailto:operations@skarfreight.co.za">operations@skarfreight.co.za</a>. Please include your company name in the subject line.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="coverage-section">
+        <div class="coverage-container">
+            <h2>Our Coverage</h2>
+            <div class="coverage-grid">
+                <div class="coverage-item">
+                    <span class="coverage-number">12+</span>
+                    <span class="coverage-label">Countries Served</span>
+                </div>
+                <div class="coverage-item">
+                    <span class="coverage-number">500+</span>
+                    <span class="coverage-label">Routes Active</span>
+                </div>
+                <div class="coverage-item">
+                    <span class="coverage-number">24h</span>
+                    <span class="coverage-label">Quote Response</span>
+                </div>
+                <div class="coverage-item">
+                    <span class="coverage-number">99%</span>
+                    <span class="coverage-label">On-Time Delivery</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reinforcement CTA -->
+    <section class="reinforcement-cta">
+        <div class="reinforcement-content">
+            <h2>Need Immediate Assistance?</h2>
+            <p>Our logistics team is available to handle urgent enquiries and complex routing requirements.</p>
+            <a href="tel:+27123456789" class="btn-phone">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+                Call Now: +27 12 345 6789
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="contact-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Skar Freight. All rights reserved. Developed by <a href="https://icarusdigi.github.io/site/" target="_blank" rel="noopener noreferrer">IDM</a></p>
+        </div>
+    </footer>
+
+    <script src="./assets/js/contact.js"></script>
+</body>
+</html>
