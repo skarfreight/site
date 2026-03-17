@@ -2209,3 +2209,214 @@
         letter-spacing: -2px;
     }
 }
+
+/* ADD these styles to your CSS file */
+
+/* Company Description Box Styles */
+.company-description-box {
+    max-width: 900px;
+    margin: 80px auto 0;
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    border: 1px solid #e8e8e8;
+    border-radius: 24px;
+    padding: 50px 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.02),
+        0 10px 20px -5px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Subtle pattern overlay */
+.company-description-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.description-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.description-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #1a1a1a;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.description-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.divider-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ff6b35, transparent);
+}
+
+.divider-dot {
+    width: 6px;
+    height: 6px;
+    background: #ff6b35;
+    border-radius: 50%;
+}
+
+.description-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4a4a4a;
+    margin-bottom: 25px;
+}
+
+.description-closing {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4a4a4a;
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+}
+
+.description-closing::before {
+    content: '"';
+    position: absolute;
+    left: -20px;
+    top: -10px;
+    font-size: 40px;
+    color: #ff6b35;
+    opacity: 0.2;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+/* Corner accents */
+.corner-accent {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: #ff6b35;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.company-description-box:hover .corner-accent {
+    opacity: 0.6;
+}
+
+.corner-accent.top-left {
+    top: 20px;
+    left: 20px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-radius: 8px 0 0 0;
+}
+
+.corner-accent.top-right {
+    top: 20px;
+    right: 20px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-radius: 0 8px 0 0;
+}
+
+.corner-accent.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-radius: 0 0 0 8px;
+}
+
+.corner-accent.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-radius: 0 0 8px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .company-description-box {
+        margin-top: 60px;
+        padding: 40px 45px;
+    }
+    
+    .description-lead {
+        font-size: 16px;
+    }
+    
+    .description-body,
+    .description-closing {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .company-description-box {
+        margin-top: 50px;
+        padding: 35px 30px;
+        border-radius: 20px;
+    }
+    
+    .description-lead {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    
+    .description-divider {
+        margin: 25px 0;
+    }
+    
+    .divider-line {
+        width: 40px;
+    }
+    
+    .description-body,
+    .description-closing {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+    
+    .corner-accent {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .corner-accent.top-left { top: 15px; left: 15px; }
+    .corner-accent.top-right { top: 15px; right: 15px; }
+    .corner-accent.bottom-left { bottom: 15px; left: 15px; }
+    .corner-accent.bottom-right { bottom: 15px; right: 15px; }
+}
+
+@media (max-width: 480px) {
+    .company-description-box {
+        padding: 30px 25px;
+        border-radius: 16px;
+    }
+    
+    .description-lead {
+        font-size: 14px;
+    }
+    
+    .description-body,
+    .description-closing {
+        font-size: 13px;
+    }
+}
