@@ -3,695 +3,1464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skar Freight • Logistics Solutions</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Skar Freight - Heavy Truck Logistics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a1628;
+            --secondary-blue: #1e3a8a;
+            --accent-orange: #f97316;
+            --accent-orange-hover: #ea580c;
+            --light-bg: #f1f5f9;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 45px;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+            /*
+            filter: brightness(0) invert(1);
+            */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-cta {
+            background: var(--accent-orange);
+            color: var(--white) !important;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 85px;
+            background: var(--primary-blue);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10,22,40,0.9) 0%, rgba(30,58,138,0.4) 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-orange);
+        }
+
+        .hero-content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.125rem;
+            margin-bottom: 40px;
+            max-width: 540px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            position: relative;
+        }
+
+        .hero-card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .hero-card-text {
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            background: var(--light-bg);
+            padding: 40px 0;
+        }
+
+        .trust-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .trust-item {
+            font-weight: 700;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-bg);
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-label {
+            color: var(--accent-orange);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--accent-orange);
+        }
+
+        .about-header {
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+
+        .about-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-header h2 span {
+            color: var(--secondary-blue);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-card {
+            position: relative;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .about-image-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-stats {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: var(--white);
+            padding: 24px 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .about-stats h3 {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-stats p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-light);
+        }
+
+        .about-feature::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: var(--accent-orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .btn-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--secondary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-arrow:hover {
+            gap: 20px;
+            color: var(--accent-orange);
+        }
+
+        .arrow-circle {
+            width: 48px;
+            height: 48px;
+            background: var(--secondary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .btn-arrow:hover .arrow-circle {
+            background: var(--accent-orange);
+        }
+
+        /* Marquee Section */
+        .marquee-section {
+            background: var(--light-bg);
+            padding: 60px 0;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-text {
+            font-size: 4rem;
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-light);
+            opacity: 0.3;
+        }
+
+        .marquee-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--primary-blue);
+            padding: 100px 0;
+            border-radius: var(--border-radius);
+            margin: 0 20px;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-header h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .features-header p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-orange);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--white);
+            padding: 100px 0;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .gallery-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .gallery-header p {
+            color: var(--text-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,22,40,0.8), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light-bg);
+            padding: 100px 0;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-image {
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            color: var(--text-dark);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact CTA Section */
+        .contact-cta {
+            background: var(--secondary-blue);
+            padding: 80px 0;
+            margin: 0 20px;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .contact-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-content h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-content p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 80px 0 40px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            margin-bottom: 24px;
+            /*
+            filter: brightness(0) invert(1);
+        */
+            }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            max-width: 300px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.875rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10,22,40,0.98);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: var(--white);
+            font-size: 40px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--accent-orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-blue);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                margin-top: 80px;
+                border-radius: 0 0 24px 24px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-container {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .marquee-text {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container,
+            .nav-container,
+            .hero-container {
+                padding: 0 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .features,
+            .contact-cta {
+                margin: 0 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-        <!-- Mobile Header (Logo + Hamburger) - Only visible on mobile -->
-    <div class="mobile-header">
-        <a href="#home" class="mobile-logo">
-            <img src="/assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight Logo">
-        </a>
-        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-    </div>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <span class="mobile-menu-title">Menu</span>
-            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
-        <nav class="mobile-nav">
-            <a href="#home" class="mobile-nav-link active">Home</a>
-            <a href="#about" class="mobile-nav-link">About</a>
-            <a href="#services" class="mobile-nav-link">Services</a>
-            <a href="#tracking" class="mobile-nav-link">Tracking</a>
-            <a href="contact-us.html" class="mobile-nav-link">Contact</a>
-        </nav>
-        <div class="mobile-menu-footer">
-            <a href="contact-us.html" class="btn-mobile-quote">Get a Quote</a>
-        </div>
-    </div>
-
     <!-- Navigation -->
-    <nav class="nav-container">
-        <div class="nav-links">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#tracking" class="nav-link">Tracking</a>
-            <a href="contact-us.html" class="nav-link">Contact</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- EDIT: Replace src with your logo.png path -->
+            <img src="./assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight" class="logo" id="nav-logo">
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
         </div>
     </nav>
 
-    <!-- Right Side Actions -->
-    <div class="nav-actions">
-        <a href="contact-us.html" class="btn-primary">
-            Get a Quote
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-        </a>
-        <button class="btn-round" aria-label="Menu">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="1"/>
-                <circle cx="19" cy="12" r="1"/>
-                <circle cx="5" cy="12" r="1"/>
-            </svg>
-        </button>
-    </div>
-<!--https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop-->
     <!-- Hero Section -->
-    <section class="section hero-section" id="home">
-        <div class="hero-bg">
-            <img src="./assets/img/hero/hero-bg.png" 
-                 alt="Container ship at sea" 
-                 id="heroImage">
-        </div>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content" id="heroContent">
-            <p class="hero-text">
-                Reliable Road Freight Across Southern Africa.
+    <section class="hero" id="home">
+        <img src="./assets/img/hero/hero-bg.png" alt="Truck" class="hero-bg">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Skar Freight</h1>
+                <p>Reliable Road Freight Across Southern Africa.
                 Local, long-distance and cross-border transport solutions across the SADC region 
-                — safely, securely, and on schedule.
-            </p>
-            <div class="hero-cta">
-                <a href="contact-us.html" class="btn-request">
-                    Request a Quote
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
-                </a>
-                <button class="btn-arrow">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
-                </button>
+                — safely, securely, and on schedule.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">Our Services →</a>
+                    <a href="#contact" class="btn-outline">Get in Touch</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Animated Ticker -->
-        <div class="ticker-container">
-            <div class="ticker-wrapper" id="ticker">
-                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
-                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
-                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
-                <span class="ticker-text">SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — SKAR FREIGHT — </span>
+            <div class="hero-card">
+                <img src="./assets/img/hero/hero-ft.jpeg" alt="Logistics">
+                <p class="hero-card-text">Dependable logistics and transport services for cargo moving across Southern Africa and the wider SADC region, Since 2003</p>
             </div>
         </div>
     </section>
 
-    <!-- why choose us section -->
-<section class="section why-choose-section" id="about">
-    <div class="why-choose-container">
-        <!-- Header Row -->
-        <div class="why-choose-header">
-            <div class="section-label">
-                <span class="orange-dot"></span>
-                <span>About Us • Description</span>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <span class="section-label">About Us • Experience</span>
+            <div class="about-header">
+                <h2>Skar Freight • <span>Secure & Reliable.</span></h2>
             </div>
             
-            <h2 class="why-choose-heading">
-                Skar Freight • Secure & reliable
-            </h2>
-        </div>
-
-       
-
-        <!-- NEW: Company Description Box -->
-        <div class="company-description-box">
-            <div class="description-content">
-                <p class="description-lead">
-                    Skar Freight provides dependable logistics and transport services for cargo moving across Southern Africa and the wider SADC region. Since 2003, we have built a strong reputation for delivering local, long-distance, and cross-border freight solutions that are safe, secure, and consistently on time.
-                </p>
-                
-                <div class="description-divider">
-                    <span class="divider-line"></span>
-                    <span class="divider-dot"></span>
-                    <span class="divider-line"></span>
+            <div class="about-grid">
+                <div class="about-image-card">
+                    <img src="./assets/img/gallery/gal1.jpeg" alt="Driver with truck">
+                    <div class="about-stats">
+                        <h3>245+</h3>
+                        <p>Cargo Delivered<br>Per Month</p>
+                    </div>
                 </div>
+                
+                <div class="about-content">
+                    <h3>local, long-distance, & cross-border solutions</h3>
+                    <p>Skar Freight provides dependable logistics and transport services for cargo moving across 
+                        Southern Africa and the wider SADC region. Since 2003, we have built a strong reputation 
+                        for delivering local, long-distance, and cross-border freight solutions that are safe, 
+                        secure, and consistently on time.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">In-depth regional route knowledge, customs procedures & compliance, 
+                            our experienced team ensures every shipment is handled efficiency with care.</div>
+                        <div class="about-feature">From smaller consignments to oversized and abnormal loads, We offer complete 
+                            end-to-end logistics support tailored to each client's needs.</div>
+                        <div class="about-feature">Our focus on professionalism, reliability, punctual delivery allows businesses 
+                            to transport their goods across borders with confidence and peace of mind.</div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-arrow">
+                        <span>Contact Us</span>
+                        <div class="arrow-circle">→</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <p class="description-body">
-                    With in-depth knowledge of regional routes, customs procedures, and compliance requirements, our experienced team ensures that every shipment is handled with efficiency and care. From smaller consignments to oversized and abnormal loads, Skar Freight offers complete end-to-end logistics support tailored to each client's needs.
-                </p>
+    <!-- Marquee Section -->
+    <section class="marquee-section">
+        <div class="marquee-content">
+            <span class="marquee-text">Reliable</span>
+            <div class="marquee-icon">↗</div>
+            <span class="marquee-text">Trusted</span>
+            <div class="marquee-icon">↗</div>
+            <span class="marquee-text">Established</span>
+            <div class="marquee-icon">↗</div>
+            <span class="marquee-text">Secure</span>
+            <div class="marquee-icon">↗</div>
+            <span class="marquee-text">Freight</span>
+            <div class="marquee-icon">↗</div>
+            <span class="marquee-text">Delivery</span>
+            <div class="marquee-icon">↗</div>
+        </div>
+    </section>
 
-                <p class="description-closing">
-                    Our focus on professionalism, reliability, punctual delivery allows businesses to transport their goods across borders with confidence and peace of mind.
-                </p>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-header">
+                <span class="section-label" style="color: var(--accent-orange); justify-content: center;">Our Experience</span>
+                <h2>Essential Features of our Services.</h2>
+                <p>Comprehensive solutions tailored to your logistics needs</p>
             </div>
             
-            <!-- Decorative corner accents -->
-            <div class="corner-accent top-left"></div>
-            <div class="corner-accent top-right"></div>
-            <div class="corner-accent bottom-left"></div>
-            <div class="corner-accent bottom-right"></div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Hazardous & Bonded Cargo</h3>
+                    <p>Transport of regulated and bonded goods under strict compliance standards..</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Break Bulk & Containerized Freight</h3>
+                    <p>Secure handling of bulk and containerized cargo across Southern Africa.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>3PL Solutions</h3>
+                    <p>Client Specific & Tailored third-party logistics solutions available upon request.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚛</div>
+                    <h3>Secure Operations</h3>
+                    <p>No night driving. All vehicles parked in 24-hour guarded facilities for enhanced cargo safety.</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="gallery-header">
+                <span class="section-label" style="justify-content: center;">Our Operations</span>
+                <h2>Gallery</h2>
+                <p>Click any image to view full size</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal10.jpeg" alt="Truck Fleet">
+                    <div class="gallery-overlay">
+                        <span>Our Fleet →</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal11.jpeg" alt="Container Shipping">
+                    <div class="gallery-overlay">
+                        <span>Break Bulk</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal2.jpeg" alt="Port Operations">
+                    <div class="gallery-overlay">
+                        <span>Port Operations</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal14.jpeg" alt="Delivery">
+                    <div class="gallery-overlay">
+                        <span>Delivery</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal3.jpeg" alt="Warehouse">
+                    <div class="gallery-overlay">
+                        <span>Bonded Cargo</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal4.jpeg" alt="Logistics Team">
+                    <div class="gallery-overlay">
+                        <span>Container Loads</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal15.jpeg" alt="Logistics Team">
+                    <div class="gallery-overlay">
+                        <span>Secure Operatios</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal7.jpeg" alt="Logistics Team">
+                    <div class="gallery-overlay">
+                        <span>3PL Solutions</span>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="./assets/img/gallery/gal1.jpeg" alt="Logistics Team">
+                    <div class="gallery-overlay">
+                        <span>Regional Routes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Full size" class="lightbox-img" id="lightbox-img" onclick="event.stopPropagation()">
     </div>
-</section>
 
-<!-- why choose us section -->
-<section class="section why-choose-section" id="about">
-    <div class="why-choose-container">
-        <!-- Header Row -->
-        <div class="why-choose-header">
-            <div class="section-label">
-                <span class="orange-dot"></span>
-                <span>Why Choose Us</span>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <span class="section-label" style="justify-content: center;">What We Offer</span>
+                <h2>Our Services</h2>
+                <p>Comprehensive logistics solutions for every need</p>
             </div>
             
-            <h2 class="why-choose-heading">
-                Built on Experience. Backed by Fleet. Trusted Across SADC.
-            </h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./assets/img/gallery/gal10.jpeg" alt="Ocean Freight">
+                    </div>
+                    <div class="service-content">
+                        <h3>Local Transport</h3>
+                        <p>Reliable distribution within South Africa, ensuring efficient turnaround and consistent delivery performance.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./assets/img/gallery/gal16.jpeg" alt="Air Freight">
+                    </div>
+                    <div class="service-content">
+                        <h3>Long Distance Haulage</h3>
+                        <p>High-capacity 34-ton payload vehicles built for dependable long-haul transport across provinces.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./assets/img/gallery/gal2.jpeg" alt="Ground Transport">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cross-Boarder Freight</h3>
+                        <p>Professional cross-border transport throughout the SADC region, handled by experienced operators.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./assets/img/gallery/gal7.jpeg" alt="Warehousing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Specialized Cargo</h3>
+                        <p>Break bulk, containerized, hazardous, bonded and project cargo handled with strict compliance and safety protocols.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./assets/img/gallery/gal5.jpeg" alt="Packaging">
+                    </div>
+                    <div class="service-content">
+                        <h3>Hazardous & Bonded Cargo</h3>
+                        <p>Transport of regulated and bonded goods under strict compliance standards.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./assets/img/gallery/gal11.jpeg" alt="Customs">
+                    </div>
+                    <div class="service-content">
+                        <h3>Break Bulk & Containerized</h3>
+                        <p>Secure handling of bulk and containerized cargo across Southern Africa.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Features Grid -->
-        <div class="features-grid">
+    <!-- Contact CTA Section -->
+    <section class="contact-cta" id="contact">
+        <div class="contact-container">
+            <div class="contact-content">
+                <span class="section-label" style="color: var(--accent-orange);">Get In Touch</span>
+                <h2>Ready to Requst a <br>Freight Quote</h2>
+                <p>Get a free quote for your logistics needs. Our team is ready to help you optimize your supply chain.</p>
+                <a href="./contact-us.html" class="btn-primary" style="margin-top: 20px;">Request Quote Now</a>
+            </div>
             
-            <!-- Feature 1 -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M2 12h20"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                    </svg>
-                </div>
-                <h3 class="feature-title">Regional Road Freight Experts</h3>
-                <p class="feature-description">Providing professional local, long-distance and cross-border transport across Zimbabwe, 
-                    Zambia, Malawi, DRC and Botswana since 2003.</p>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
-                <h3 class="feature-title">Company-Owned Fleet</h3>
-                <p class="feature-description">34-ton payload super-link flat decks, tautliners, triaxles and side tippers — all 
-                    purchased new and maintained under strict service plans.</p>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                        <line x1="8" y1="21" x2="16" y2="21"/>
-                        <line x1="12" y1="17" x2="12" y2="21"/>
-                    </svg>
-                </div>
-                <h3 class="feature-title">24/7 Live Tracking</h3>
-                <p class="feature-description">Every vehicle is monitored via live satellite tracking, giving you real-time 
-                    visibility and total shipment control.</p>
-            </div>
-
-            <!-- Feature 4 -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <h3 class="feature-title">Secure & Fully Insured</h3>
-                <p class="feature-description">R2 million GIT cover, R10 million Public Liability, and Environmental/Spillage Cover — 
-                    protecting your cargo at every stage.</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-        <!-- Services Section -->
-    <section class="section services-section" id="services">
-        <div class="services-container">
-            <!-- Carousel -->
-            <div class="carousel-viewport" id="carouselViewport">
-                <div class="carousel-track" id="carouselTrack">
-                    <!-- Slides will be duplicated by JS for infinite loop -->
-                    <!-- Slide 1: Air Freight -->
-                    <div class="service-slide" data-service="air">
-                        <div class="slide-card">
-                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop" alt="Air Freight">
-                            <div class="slide-overlay"></div>
-                            <div class="slide-content">
-                                <span class="slide-number">01</span>
-                                <h3 class="slide-title">Local Transport</h3>
-                            </div>
-                        </div>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
                     </div>
-
-                    <!-- Slide 2: Sea Shipping -->
-                    <div class="service-slide active" data-service="sea">
-                        <div class="slide-card">
-                            <img src="https://images.unsplash.com/photo-1577993130611-bd07d6f7c57a?q=80&w=1000&auto=format&fit=crop" alt="Sea Shipping">
-                            <div class="slide-overlay"></div>
-                            <div class="slide-content">
-                                <span class="slide-number">02</span>
-                                <h3 class="slide-title">Long Distance Haulage</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3: Road Transport -->
-                    <div class="service-slide" data-service="road">
-                        <div class="slide-card">
-                            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1000&auto=format&fit=crop" alt="Road Transport">
-                            <div class="slide-overlay"></div>
-                            <div class="slide-content">
-                                <span class="slide-number">03</span>
-                                <h3 class="slide-title">Cross-Border Freight</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4: Rail Freight -->
-                    <div class="service-slide" data-service="rail">
-                        <div class="slide-card">
-                            <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1000&auto=format&fit=crop" alt="Rail Freight">
-                            <div class="slide-overlay"></div>
-                            <div class="slide-content">
-                                <span class="slide-number">04</span>
-                                <h3 class="slide-title">Specialised Cargo</h3>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="john@company.com" required>
                     </div>
                 </div>
-            </div>
-
-            <!-- Description Area -->
-            <div class="service-description" id="serviceDescription">
-                <p class="description-text">
-                    Professional road freight solutions designed for reliability, compliance and efficiency 
-                    <span class="highlight">— supported by a modern fleet and experienced operators.</span>
-                </p>
-                <a href="contact-us.html" class="btn-learn-more">Learn More</a>
-            </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="+1 (555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Needed</label>
+                        <select required>
+                            <option value="">Select service</option>
+                            <option value="ocean">Ocean Freight</option>
+                            <option value="air">Air Freight</option>
+                            <option value="ground">Ground Transport</option>
+                            <option value="warehouse">Warehousing</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="3" placeholder="Tell us about your shipping needs..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+            </form>
         </div>
     </section>
 
-        <!-- Process Section -->
-    <section class="section process-section" id="process">
-        <div class="process-container">
-            <!-- Background Elements -->
-            <div class="world-map left">
-                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Dotted world map pattern -->
-                    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.15)"/>
-                    </pattern>
-                    <rect width="400" height="400" fill="url(#dots)"/>
-                    <!-- Continents shapes (simplified dotted) -->
-                    <circle cx="80" cy="100" r="40" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="120" cy="80" r="30" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="60" cy="150" r="25" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="100" cy="200" r="35" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="150" cy="120" r="20" fill="rgba(255,255,255,0.08)"/>
-                </svg>
-            </div>
-            <div class="world-map right">
-                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <pattern id="dots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.15)"/>
-                    </pattern>
-                    <rect width="400" height="400" fill="url(#dots2)"/>
-                    <circle cx="300" cy="100" r="45" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="350" cy="150" r="35" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="320" cy="200" r="30" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="280" cy="250" r="25" fill="rgba(255,255,255,0.08)"/>
-                    <circle cx="340" cy="300" r="20" fill="rgba(255,255,255,0.08)"/>
-                </svg>
-            </div>
-
-            <!-- Header -->
-            <div class="process-header">
-                <h2 class="process-title">From Request to Delivery—Streamlined<br>Every Step of the Way</h2>
-                <p class="process-subtitle">From initial request to final delivery, our road freight process is <br> structured, transparent and fully monitored.</p>
-            </div>
-
-            <!-- Timeline -->
-            <div class="timeline-container">
-                <!-- Connecting Line -->
-                <div class="timeline-line">
-                    <div class="line-progress"></div>
-                </div>
-
-                <!-- Steps -->
-                <div class="steps-wrapper">
-                    <!-- Step 1 -->
-                    <div class="step" data-step="1">
-                        <div class="step-connector">
-                            <div class="vertical-line"></div>
-                        </div>
-                        <div class="step-circle">1</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Request a Quote</h3>
-                            <p class="step-description">Submit your cargo details and route requirements for a competitive and sustainable pricing proposal.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="step" data-step="2">
-                        <div class="step-connector">
-                            <div class="vertical-line"></div>
-                        </div>
-                        <div class="step-circle">2</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Fleet Allocation & Dispatch</h3>
-                            <p class="step-description">We allocate the correct vehicle type and route plan, ensuring compliance, safety and efficiency.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="step" data-step="3">
-                        <div class="step-connector">
-                            <div class="vertical-line"></div>
-                        </div>
-                        <div class="step-circle">3</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Live Monitoring & Delivery</h3>
-                            <p class="step-description">Track your cargo in real-time until safe and secure delivery at destination.</p>
-                        </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <!-- EDIT: Replace src with your logo.png path -->
+                    <img src="./assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight" id="footer-logo">
+                    <p>Providing professional road freight solutions across Southern Africa. We move cargo with confidence.</p>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">📍 40 Prince Mlangane Rd, Avoca, Durban North, 4051</div>
+                        <div class="footer-contact-item">📞 +27 73 792 5332</div>
+                        <div class="footer-contact-item">✉️ kiav@skar.co.za</div>
                     </div>
                 </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Local Transport</a></li>
+                        <li><a href="#services">Cross-Board Freight</a></li>
+                        <li><a href="#services">Specialized Cargo</a></li>
+                        <li><a href="#services">Containerized</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="./contact-us.html">Call Back</a></li>
+                        <li><a href="./contact-us.html">Get Quote</a></li>
+                        <li><a href="./contact-us.html">Support Center</a></li>
+                        <li><a href="./contact-us.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skar Freight. All rights reserved. Developed by <a href="https://icarusdigi.github.io/site/" style="color: #ff9c22;" >IDM.</a></p>
             </div>
         </div>
-    </section>
+    </footer>
 
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
 
-        <!-- End-to-End Logistics Services Section -->
-    <section class="section logistics-services-section" id="logistics">
-        <div class="logistics-container">
-            <!-- Header -->
-            <div class="logistics-header">
-                <div class="section-label">
-                    <span class="orange-dot"></span>
-                    <span>End to End Logistics Services</span>
-                </div>
-                <h2 class="logistics-heading">
-                    Comprehensive Road Freight & 3PL Solutions
-                </h2>
-            </div>
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
 
-            <!-- Services Grid -->
-            <div class="services-grid-four">
-                <!-- Service 1 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M2 12h20"/>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-name">Break Bulk & Containerized Freight</h3>
-                    <p class="service-desc">Secure handling of bulk and containerized cargo across Southern Africa.</p>
-                </div>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
 
-                <!-- Service 2 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-name">Hazardous & Bonded Cargo</h3>
-                    <p class="service-desc">Transport of regulated and bonded goods under strict compliance standards.</p>
-                </div>
+        // Lightbox
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-                <!-- Service 3 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                            <line x1="8" y1="21" x2="16" y2="21"/>
-                            <line x1="12" y1="17" x2="12" y2="21"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-name">3PL Solutions</h3>
-                    <p class="service-desc">Tailored third-party logistics solutions available upon request.</p>
-                </div>
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
 
-                <!-- Service 4 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-name">Secure Operations</h3>
-                    <p class="service-desc">No night driving. All vehicles parked in 24-hour guarded facilities for enhanced cargo safety.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
 
-    <!-- Track Shipment Section -->
-    <section class="section track-section" id="tracking">
-        <div class="track-bg">
-            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop" alt="Container ship at sea">
-            <div class="track-overlay"></div>
-        </div>
-        
-        <div class="track-container">
-            <div class="track-card">
-                <h2 class="track-title">Real-Time Shipment Visibility</h2>
-                <p class="track-subtitle">Every Skar Freight vehicle is equipped with live satellite tracking, giving our clients complete visibility and control throughout the journey.</p>
-                
-                <form class="track-form" id="trackForm">
-                    <input type="text" class="track-input" placeholder="Enter your Email Address" required>
-                    <a href="contact-us.html#info" type="submit" class="btn-track">Track Shipment</a>
-                </form>
-            </div>
-        </div>
-    </section>
-<!--
-        Testimonials Section 
-    <section class="section testimonials-section" id="testimonials">
-        <div class="testimonials-container">
-            Left Content 
-            <div class="testimonials-left">
-                <div class="section-label">
-                    <span class="orange-dot"></span>
-                    <span>Users Feedback</span>
-                </div>
-                
-                <h2 class="testimonials-title">Trusted by Businesses<br>Worldwide</h2>
-                
-                <div class="testimonials-nav">
-                    <button class="nav-arrow prev" id="prevBtn" aria-label="Previous testimonial">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M15 18l-6-6 6-6"/>
-                        </svg>
-                    </button>
-                    <button class="nav-arrow next" id="nextBtn" aria-label="Next testimonial">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 18l6-6-6-6"/>
-                        </svg>
-                    </button>
-                </div>
-                
-                <p class="testimonials-intro">
-                    Businesses across Southern Africa trust us for dependable cross-border road transport, secure handling and consistent service delivery.
-                </p>
-            </div>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
 
-           Right Content - Testimonial Slider 
-            <div class="testimonials-right">
-                <div class="testimonial-slider" id="testimonialSlider">
-                  Testimonial 1
-                    <div class="testimonial-slide active" data-index="0">
-                        <div class="testimonial-quote">
-                            <p>Skar Freight helped us reduce delivery times by 30%. Their real-time tracking and support team are top-notch.</p>
-                        </div>
-                        <div class="testimonial-card">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="James R" class="testimonial-image">
-                            <div class="testimonial-info">
-                                <div class="testimonial-author">
-                                    <h4>James R</h4>
-                                    <span>Supply Chain Manager</span>
-                                </div>
-                                <div class="testimonial-rating">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    Testimonial 2 
-                    <div class="testimonial-slide" data-index="1">
-                        <div class="testimonial-quote">
-                            <p>The customs clearance service saved us countless hours of paperwork. Highly recommended for international shipping.</p>
-                        </div>
-                        <div class="testimonial-card">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Sarah M" class="testimonial-image">
-                            <div class="testimonial-info">
-                                <div class="testimonial-author">
-                                    <h4>Sarah M</h4>
-                                    <span>Operations Director</span>
-                                </div>
-                                <div class="testimonial-rating">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                     Testimonial 3 
-                    <div class="testimonial-slide" data-index="2">
-                        <div class="testimonial-quote">
-                            <p>We've cut logistics costs by 25% since switching to Skar Freight. Their technology platform is intuitive and powerful.</p>
-                        </div>
-                        <div class="testimonial-card">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop" alt="Michael Chen" class="testimonial-image">
-                            <div class="testimonial-info">
-                                <div class="testimonial-author">
-                                    <h4>Michael Chen</h4>
-                                    <span>CEO, TechStart Inc.</span>
-                                </div>
-                                <div class="testimonial-rating">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    Testimonial 4 
-                    <div class="testimonial-slide" data-index="3">
-                        <div class="testimonial-quote">
-                            <p>Outstanding customer service! They handled our complex supply chain needs with professionalism and care.</p>
-                        </div>
-                        <div class="testimonial-card">
-                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Emily Watson" class="testimonial-image">
-                            <div class="testimonial-info">
-                                <div class="testimonial-author">
-                                    <h4>Emily Watson</h4>
-                                    <span>Logistics Coordinator</span>
-                                </div>
-                                <div class="testimonial-rating">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    -->
-
-        <!-- CTA & Footer Combined Section -->
-    <section class="section cta-footer-section" id="contact">
-        <div class="cta-footer-container">
-            <!-- CTA Part -->
-            <div class="cta-wrapper">
-                <div class="cta-image">
-                    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1000&auto=format&fit=crop" alt="Container ship">
-                </div>
-                <div class="cta-content">
-                    <div class="cta-bg-pattern"></div>
-                    <h2 class="cta-title">Let's Get Your Cargo Moving</h2>
-                    <p class="cta-subtitle">Whether you require local distribution, long-distance haulage or cross-border transport within the SADC region — Skar Freight delivers with precision.</p>
-                    <div class="cta-actions">
-                        <button class="btn-cta">Request a Quote</button>
-                        <button class="btn-cta-arrow">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="cta-logo">SKAR FREIGHT</div>
-                </div>
-            </div>
-
-            <!-- Footer Part -->
-            <div class="footer-wrapper">
-                <div class="footer-main">
-                    <!-- Brand Column -->
-                    <div class="footer-brand">
-                        <h3 class="footer-brand-name">Skar Freight</h3>
-                        <p class="footer-brand-desc">Providing 
-                            professional road freight solutions across Southern Africa. We move cargo 
-                            with confidence.</p>
-                    </div>
-
-                    <!-- Page Links -->
-                    <div class="footer-links">
-                        <h4 class="footer-heading">Page</h4>
-                        <ul class="footer-list">
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#tracking">Tracking</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="footer-social">
-                        <h4 class="footer-heading">Follow us</h4>
-                        <ul class="footer-list">
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">LinkedIn</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Newsletter -->
-                    <div class="footer-newsletter">
-                        <h4 class="footer-heading">Subscribe to news</h4>
-                        <button class="btn-subscribe">
-                            Request a Quote
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Large Background Text -->
-                <div class="footer-watermark">SKAR FREIGHT</div>
-
-                <!-- Copyright -->
-                <div class="footer-copyright">
-                    <p>© 2026 Skar Freight. All rights reserved. Developed by <a href="https://icarusdigi.github.io/site/" target="_blank" rel="noopener noreferrer">IDM</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="./assets/js/script.js"></script>
-
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '15px 0';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.padding = '20px 0';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
