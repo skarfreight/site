@@ -1318,7 +1318,18 @@
                 <a href="./contact-us.html" class="btn-primary" style="margin-top: 20px;">Request Quote Now</a>
             </div>
             
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+            <form class="contact-form" id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+
+                <!-- Web3Forms Configuration -->
+                <input type="hidden" name="access_key" value="cb24d97c-e6bf-4c28-b1c5-c3f5e6b22bdf">
+                <input type="hidden" name="subject" value="New Freight Quote Request - Skar Freight">
+                <input type="hidden" name="from_name" value="Skar Freight Website">
+                <input type="hidden" name="redirect" value="https://skar.co.za/thank-you.html">
+                
+             
+                <div class="h-captcha" data-captcha="true"></div>
+
+
                 <div class="form-row">
                     <div class="form-group">
                         <label>Full Name</label>
@@ -1462,5 +1473,12 @@
             }
         });
     </script>
+
+
+    <script src="./assets/js/contact.js"></script>
+   
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+
 </body>
 </html>
