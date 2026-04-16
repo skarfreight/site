@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Skar Freight</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a1628;
+            --secondary-blue: #1e3a8a;
+            --accent-orange: #f97316;
+            --accent-orange-hover: #ea580c;
+            --light-bg: #f1f5f9;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 45px;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+            /*
+            filter: brightness(0) invert(1);
+        */
+            }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-cta {
+            background: var(--accent-orange);
+            color: var(--white) !important;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Thank You Hero Section */
+        .thank-you-hero {
+            margin-top: 85px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-blue);
+        }
+
+        .thank-you-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .thank-you-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(30,58,138,0.8) 100%);
+        }
+
+        .thank-you-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 60px 40px;
+            max-width: 800px;
+        }
+
+        .mail-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 40px;
+            background: var(--white);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .mail-icon svg {
+            width: 60px;
+            height: 60px;
+            color: var(--accent-orange);
+        }
+
+        .thank-you-content h1 {
+            color: var(--white);
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .thank-you-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+        }
+
+        .home-button:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.4);
+        }
+
+        .home-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 80px 0 40px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            margin-bottom: 24px;
+        }
+
+        .footer-brand p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            max-width: 300px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 30px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-blue);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .thank-you-hero {
+                margin-top: 80px;
+                min-height: 60vh;
+            }
+
+            .thank-you-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .mail-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .mail-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container,
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .thank-you-content h1 {
+                font-size: 2rem;
+            }
+
+            .thank-you-content p {
+                font-size: 1rem;
+            }
+
+            .home-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="./assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight" class="logo" id="nav-logo">
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="./contact-us.html" class="nav-cta">Contact Us</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Thank You Section -->
+    <section class="thank-you-hero">
+        <!-- Background Image -->
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200" alt="Logistics Background" class="thank-you-bg">
+        <div class="thank-you-overlay"></div>
+        
+        <div class="thank-you-content">
+            <!-- Mail Icon -->
+            <div class="mail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+            </div>
+            
+            <h1>Thank You!</h1>
+            <p>Thank you for submitting your information. We have received your request and will contact you soon to discuss your logistics needs.</p>
+            
+            <a href="index.html" class="home-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Back to Home
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="./assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight" id="footer-logo">
+                    <p>Providing professional road freight solutions across Southern Africa. We move cargo with confidence.</p>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">📍 40 Prince Mlangane Rd, Avoca, Durban North, 4051</div>
+                        <div class="footer-contact-item">📞 +27 73 792 5332</div>
+                        <div class="footer-contact-item">✉️ kiav@skar.co.za</div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Local Transport</a></li>
+                        <li><a href="#services">Cross-Board Freight</a></li>
+                        <li><a href="#services">Specialized Cargo</a></li>
+                        <li><a href="#services">Containerized</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="./contact-us.html">Call Back</a></li>
+                        <li><a href="./contact-us.html">Get Quote</a></li>
+                        <li><a href="./contact-us.html">Support Center</a></li>
+                        <li><a href="./contact-us.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skar Freight. All rights reserved. Developed by <a href="https://icarusdigi.github.io/site/" style="color: #ff9c22;" >IDM.</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '15px 0';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.padding = '20px 0';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
