@@ -1027,7 +1027,38 @@
             .contact-cta {
                 margin: 0 10px;
             }
+            
         }
+
+        .whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--accent-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+    z-index: 9999;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    background: var(--accent-orange-hover);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
+}
+
+.whatsapp-btn img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
     </style>
 </head>
 <body>
@@ -1374,7 +1405,7 @@
                     <img src="./assets/img/logo/skarfreight_LogoT.png" alt="Skar Freight" id="footer-logo">
                     <p>Providing professional road freight solutions across Southern Africa. We move cargo with confidence.</p>
                     <div class="footer-contact">
-                        <div class="footer-contact-item">📍 40 Prince Mlangane Rd, Avoca, Durban North, 4051</div>
+                        <div class="footer-contact-item">📍 1 Mega Crescent, Westville North, 3629</div>
                         <div class="footer-contact-item">📞 +27 73 792 5332</div>
                         <div class="footer-contact-item">✉️ kiav@skar.co.za</div>
                     </div>
@@ -1411,7 +1442,11 @@
                 <p>&copy; 2026 Skar Freight. All rights reserved. Developed by <a href="https://icarusdigi.github.io/site/" style="color: #ff9c22;" >IDM.</a></p>
             </div>
         </div>
+
     </footer>
+    <a href="https://wa.me/27737925332" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <img src="./assets/img/wa/waLogo_T.png" alt="WhatsApp">
+</a>
 
     <script>
         // Mobile Menu
